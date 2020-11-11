@@ -22,7 +22,18 @@ public class DownloadTask extends AsyncTask<String,Integer,Void> {
     @Override
     protected Void doInBackground(String... strings) {
         Log.i(TAG,"doInBackground"+strings[0]);
-        publishProgress(50);
+
+            try {
+                for(int i=1;i<20;i++) {
+                    publishProgress(i * 5);
+
+                    Thread.sleep(200);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+//        publishProgress(50);
         return null;
     }
 
